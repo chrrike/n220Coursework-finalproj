@@ -56,11 +56,13 @@ function compTurn(){
     if(gridArray[compSelection] == 'X' || gridArray[compSelection] == "O"){
         //if the selected space already has been selected, call function again to pick another num
         compTurn();
-    }else{
+    }else if(gridArray[compSelection] == ""){
         //put an O in that spot in the array
         gridArray[compSelection] = "O";
         //change inner HTML corresponding button to O
         squares[compSelection].innerHTML = "O";
+    }else{
+        console.log("Tie");
     }
     //check to see if won state has changed
     isWon = checkWon();
